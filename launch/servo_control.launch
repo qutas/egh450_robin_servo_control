@@ -1,0 +1,13 @@
+<?xml version='1.0'?>
+<launch>
+	<!-- Servo Control Node -->
+	<node pkg="egh450_robin_servo_control" type="servo_control" name="servo_control" clear_params="true" output="screen">
+		<param name="servo_ch" value="6"/>
+		<param name="servo_low" value="1000"/>
+		<param name="servo_high" value="2000"/>
+		<param name="servo_start_high" value="false"/>
+
+		<remap from="~override" to="/mavros/rc/override"/>
+		<remap from="~deploy" to="~deploy_payload"/>
+	</node>
+</launch>

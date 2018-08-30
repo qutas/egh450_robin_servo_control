@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+import rospy
+from egh450_robin_servo_control.robin_servo_control import RobinServoControl
+
+if __name__ == '__main__':
+	# Initialize
+	rospy.init_node('egh450_robin_servo_control', anonymous=True)
+
+	rsc = RobinServoControl()
+	rospy.loginfo("[PAY] Servo control node running")
+
+	try:
+		# Loop here until quit
+		rospy.spin()
+	except rospy.ROSInterruptException:
+		pass
+	finally:
+		rospy.loginfo("[PAY] Servo control shutting down")
+		rsc.shutdown()
